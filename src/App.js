@@ -6,7 +6,7 @@ import './assets/styles/gdb-app-custom.css'
 
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ErrorMessage, LoadingWheel, NavBar } from "@dana-allen/gdb-core"
+import { ErrorMessage, LoadingWheel, NavBar } from "@centre-for-virus-research/gdb-core"
 
 import Footer from "./components/Footer"
 import Home from "./views/home/home2";
@@ -34,7 +34,7 @@ import Documentation from './views/documentation';
 
 import AdvancedSearch from './views/explore/advanced_search';
 
-import { ErrorHandlerProvider, LoadingWheelProvider } from "@dana-allen/gdb-core";
+import { ErrorHandlerProvider, LoadingWheelProvider } from "@centre-for-virus-research/gdb-core";
 
 
 function App() {

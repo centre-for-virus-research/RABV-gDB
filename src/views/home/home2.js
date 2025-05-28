@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { ReactSVG } from 'react-svg';
-import { Modules, ModulesBottom, FunctionCard } from "@dana-allen/gdb-core";
+import { Modules, ModulesBottom, FunctionCard } from "@centre-for-virus-research/gdb-core";
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

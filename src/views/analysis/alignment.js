@@ -12,10 +12,10 @@ import StepContent from '@mui/material/StepContent';
 
 import Typography from '@mui/material/Typography';
 
-import { useJobPolling } from '@dana-allen/gdb-core'
+import { useJobPolling } from '@centre-for-virus-research/gdb-core'
 
 
-import { AlignmentSubmission, submitApiQuery, BlastResults, AlignmentResults, steps, CustomStepIcon } from '@dana-allen/gdb-core'
+import { AlignmentSubmission, submitApiQuery, BlastResults, AlignmentResults, steps, CustomStepIcon } from '@centre-for-virus-research/gdb-core'
 // import { alignmentResults } from './sequenceViewerHelper';
 
 

@@ -86,7 +86,7 @@ const Documentation = () => {
         <pre><code>$ npm run watch</code></pre>
         
         <p>Inside your RABV-gDB directory:</p>
-        <pre><code>$ npm link @dana-allen/core-gdb</code></pre>
+        <pre><code>$ npm link @centre-for-virus-research/core-gdb</code></pre>
 
 
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { VirusModules } from '@dana-allen/gdb-core';
+import { VirusModules } from '@centre-for-virus-research/gdb-core';
 
 
 const Other = () => {

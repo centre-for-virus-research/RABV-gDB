@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { formatCollectionYearRange, formatMetaDataRegions } from '@dana-allen/gdb-core'
+import { formatCollectionYearRange, formatMetaDataRegions } from '@centre-for-virus-research/gdb-core'
 
 
 const SampleDetails = ({ meta_data }) => {

@@ -3,11 +3,11 @@ import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
 
-import {  SequenceDetails, SampleDetails } from '@dana-allen/gdb-core';
-import { useApiEndpoint, useErrorHandler, useLoadingWheelHandler, GenomeViewer, GenomeViewer2 } from '@dana-allen/gdb-core';
+import {  SequenceDetails, SampleDetails } from '@centre-for-virus-research/gdb-core';
+import { useApiEndpoint, useErrorHandler, useLoadingWheelHandler, GenomeViewer, GenomeViewer2 } from '@centre-for-virus-research/gdb-core';
 
 
-import { buildGenomeViewerResults } from '@dana-allen/gdb-core';
+import { buildGenomeViewerResults } from '@centre-for-virus-research/gdb-core';
 
 // Importing stylesheets
 import '../../../assets/styles/sequence.css'

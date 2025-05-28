@@ -1,5 +1,5 @@
 import React from "react";
-import { TeamCard } from '@dana-allen/gdb-core';
+import { TeamCard } from '@centre-for-virus-research/gdb-core';
 
 const Team = () => {
     return (

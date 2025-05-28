@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { LoadingWheel, ErrorMessage, GenomeRegionAnnotationsTable, GenomeViewer, PagingButtons  } from '@dana-allen/gdb-core';
+import { LoadingWheel, ErrorMessage, GenomeRegionAnnotationsTable, GenomeViewer, PagingButtons  } from '@centre-for-virus-research/gdb-core';
 
-import { useApiEndpoint, useErrorHandler, useLoadingWheelHandler } from '@dana-allen/gdb-core';
+import { useApiEndpoint, useErrorHandler, useLoadingWheelHandler } from '@centre-for-virus-research/gdb-core';
 
 // Styling
 import '../../../assets/styles/reference.css'

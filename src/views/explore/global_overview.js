@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Tooltip as ReactTooltip } from "react-tooltip";
-import { GlobalMap, useApiEndpoint, useErrorHandler, useLoadingWheelHandler } from '@dana-allen/gdb-core';
+import { GlobalMap, useApiEndpoint, useErrorHandler, useLoadingWheelHandler } from '@centre-for-virus-research/gdb-core';
 
 const GlobalOverview = () => {
 

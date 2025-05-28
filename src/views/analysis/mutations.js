@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MutationsFilter, MutationsGraph, useLoadingWheelHandler, MutationsTable } from '@dana-allen/gdb-core'
+import { MutationsFilter, MutationsGraph, useLoadingWheelHandler, MutationsTable } from '@centre-for-virus-research/gdb-core'
 
 const Mutations = () => {
     const { triggerLoadingWheel } = useLoadingWheelHandler();
