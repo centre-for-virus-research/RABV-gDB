@@ -1,0 +1,171 @@
+.scroll-container {
+  width: 100%; /* Set the width of the div */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent line wrapping */
+  /* border: 1px solid #ddd; Optional border around the container */
+  padding: 10px;
+}
+
+.letter-group-wrapper {
+  display: inline-flex; /* Use inline-flex to keep letters on the same line */
+  align-items: center; /* Center align the top letter with the letters */
+  position: relative; /* Allow positioning of the top letter */
+  margin-right: 2px; /* Optional spacing between letter groups */
+  margin-top:50px;
+}
+
+.top-index {
+  display: flex; /* Use flex to center the letter */
+  align-items: center; /* Center the letter vertically */
+  justify-content: center; /* Center the letter horizontally */
+  width: 55px; /* Set width of the rectangle */
+  height: 30px; /* Set height of the rectangle */
+  /* border: 2px solid blue; Border around the rectangle */
+  position: absolute; /* Position it above the three letters */
+  top: -60px;
+  /*top: -31px; Adjust to ensure it appears above the letters*/
+  /*left: 125%; /* Align to the left of the letter group */
+  font-size: 16px; /* Adjust font size as needed */
+  color: #222222;
+
+}
+
+.top-letter {
+  display: flex; /* Use flex to center the letter */
+  align-items: center; /* Center the letter vertically */
+  justify-content: center; /* Center the letter horizontally */
+  width: 55px; /* Set width of the rectangle */
+  height: 30px; /* Set height of the rectangle */
+  /* border: 2px solid blue; Border around the rectangle */
+  position: absolute; /* Position it above the three letters */
+  top: -35px;
+  /*top: -31px; Adjust to ensure it appears above the letters
+  left: 0%; /* Align to the left of the letter group */
+  font-size: 16px; /* Adjust font size as needed */
+
+}
+.top-letter-blue {
+  color: #3a5c7e;
+  background-color: #ddeeff; /* Optional background color */
+}
+
+.top-letter-green {
+  background-color: #ddeecc; /* Optional background color */
+  color: #557733;;
+}
+
+.top-letter-grey {
+  color: #fff;
+  /* border: 2px solid #aaaaaa; Blue border around each letter */
+  background-color: #aaaaaa;
+}
+
+
+.letter-index-container {
+  display: inline-block; /* Keep each letter-index pair in a single line */
+  text-align: center; /* Center text horizontally */
+  vertical-align: top; /* Align items to the top */
+  margin-right: 3px; /* Optional spacing between letters */
+}
+
+.letter {
+  display: block; /* Display each letter in a block within the container */
+  width: 15px; /* Set square width */
+  height: 20px; /* Set square height */
+  /* border: 2px solid blue; Blue border around each letter */
+  line-height: 20px; /* Center text vertically */
+  font-size: 16px; /* Adjust font size as needed */
+  margin-top: -5px;
+}
+
+.letter-blue {
+  color: #88aacc;
+  background-color: #fff;
+}
+
+.letter-green {
+  color: #99bb77;
+  background-color: #fff;
+}
+
+.letter-grey {
+  
+  color: #fff;
+  /* border: 2px solid #aaaaaa; Blue border around each letter */
+  background-color: #aaaaaa;
+}
+
+.index {
+  display: block; /*Display index below the letter */
+  margin-top: 3px; /* Space between letter and index */
+  font-size: 10px; /* Smaller font size for the index */
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  
+}
+.index-blue {
+  color: #88aacc;
+}
+.index-green {
+  color: #99bb77;
+}
+
+
+.rap-wrapper {
+  display: inline-flex; /* Use inline-flex to keep letters on the same line */
+  align-items: center; /* Center align the top letter with the letters */
+  position: relative; /* Allow positioning of the top letter */
+  /* margin-right: 2px; Optional spacing between letter groups */
+  /* margin-top:50px; */
+}
+
+.rap-container {
+  display: inline-block; /* Keep each letter-index pair in a single line */
+  text-align: center; /* Center text horizontally */
+  vertical-align: top; /* Align items to the top */
+  margin-right: 0px; /* Optional spacing between letters */
+}
+
+.top-rap-first {
+  display: block; /* Display each letter in a block within the container */
+  width: 10px; /* Set square width */
+  height: 20px; /* Set square height */
+  border: 2px solid blue; /* Blue border around each letter */
+  line-height: 20px; /* Center text vertically */
+  /* font-size: 16px; Adjust font size as needed */
+  margin-top: -50px;
+  margin-left: none;
+  background-color: blue;
+
+}
+
+.top-rap {
+  display: block; /* Display each letter in a block within the container */
+  width: 20px; /* Set square width */
+  height: 2px; /* Set square height */
+  border: 3px solid blue; /* Blue border around each letter */
+  line-height: 2px; /* Center text vertically */
+  /* font-size: 16px; Adjust font size as needed */
+  margin-top: -43px;
+  margin-left: none;
+}
+
+.rap-link {
+
+}
+
+.rap-link:hover, .rap-link:focus, .rap-link:active, .rap-link.active, .open>.dropdown-toggle.rap-link {
+  color: #fff !important;
+  background-color: var(--secondary) !important;
+}
+
+.genomePicker {
+  border:2px solid white; 
+  border-radius:0px;
+  background-color:#008cba;
+}
+
+.genomePicker:hover, .genomePicker:active {
+  filter:brightness(85%)
+}
+

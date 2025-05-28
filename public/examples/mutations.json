@@ -1,0 +1,6 @@
+{
+    "host":["dog", "bovine"],
+    "clade":["Africa-2"],
+    "region":["transmembrane glycoprotein G"] ,
+    "codon":[60, 70]
+ }
