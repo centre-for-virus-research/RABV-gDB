@@ -1,7 +1,7 @@
 import React from "react";
 import SwaggerUI from "swagger-ui-react";
 import "swagger-ui-react/swagger-ui.css"
-import { APITable } from '@centre-for-virus-research/gdb-core';
+import { APITable } from '@centre-for-virus-research/gdb-core-package';
 
 
 import '../../assets/styles/offlineApi.css'

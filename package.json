@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/plugin-syntax-jsx": "^7.24.7",
-    "@centre-for-virus-research/gdb-core-package": "^1.0.0",
+    "@centre-for-virus-research/gdb-core-package-package": "^1.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.7.1",
     "@fortawesome/free-regular-svg-icons": "^6.7.2",

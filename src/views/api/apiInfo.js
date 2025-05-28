@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams, useLocation} from 'react-router-dom';
-import { APIPathTable, APIExample, APIOutput } from '@centre-for-virus-research/gdb-core';
+import { APIPathTable, APIExample, APIOutput } from '@centre-for-virus-research/gdb-core-package';
 
 
 

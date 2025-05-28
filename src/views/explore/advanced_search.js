@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { Tab } from '@centre-for-virus-research/gdb-core';
-import { AdvancedFilter } from '@centre-for-virus-research/gdb-core';
+import { Tab } from '@centre-for-virus-research/gdb-core-package';
+import { AdvancedFilter } from '@centre-for-virus-research/gdb-core-package';
 
 const AdvancedSearch = () => {
 

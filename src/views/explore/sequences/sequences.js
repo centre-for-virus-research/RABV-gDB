@@ -2,10 +2,10 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
 
 // gDB-core components import: This create the tables and buttons to view the data
-import { SequencesTable, SequencesFilter, DownloadDropdown } from '@centre-for-virus-research/gdb-core';
+import { SequencesTable, SequencesFilter, DownloadDropdown } from '@centre-for-virus-research/gdb-core-package';
 
 // gDB-core hooks import: This creates an API request to grab the data from the server
-import { useApiEndpoint, useFilterParams, submitApiQuery, useErrorHandler, useLoadingWheelHandler } from '@centre-for-virus-research/gdb-core';
+import { useApiEndpoint, useFilterParams, submitApiQuery, useErrorHandler, useLoadingWheelHandler } from '@centre-for-virus-research/gdb-core-package';
 
 // Style imports
 import '../../../assets/styles/sequences.css'

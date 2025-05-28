@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useApiEndpoint, useErrorHandler, useLoadingWheelHandler } from '@centre-for-virus-research/gdb-core';
+import { useApiEndpoint, useErrorHandler, useLoadingWheelHandler } from '@centre-for-virus-research/gdb-core-package';
 
 const packageJson = require('../../../package.json'); 
 

@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink} from '@fortawesome/free-solid-svg-icons'
 
-import { formatGenomeCoverage } from '@centre-for-virus-research/gdb-core'
+import { formatGenomeCoverage } from '@centre-for-virus-research/gdb-core-package'
 
 const SequenceDetails = ({ meta_data, alignment }) => {
 

@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import { StatisticsTable } from '@centre-for-virus-research/gdb-core';
+import { StatisticsTable } from '@centre-for-virus-research/gdb-core-package';
  
 const Statistics = () => {
     return (
