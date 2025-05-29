@@ -60,7 +60,7 @@ const Sequences = ( { filters=null } ) => {
             </div>
 
             <div class='padding-table'>
-                <SequencesTable data={data} />
+                <SequencesTable data={data} type={'sequence'} />
                 <SequencesFilter show={showFilter} onFilterSelect={handleFiltersChange} onClose={() => setShowFilter(false)}/>
             </div>
        </div>

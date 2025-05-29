@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.js';
 import './assets/styles/gdb-app-custom.css'
 
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Router, BrowserRouter, Routes, Route } from "react-router-dom";
 import { ErrorMessage, LoadingWheel, NavBar } from "@centre-for-virus-research/gdb-core-package"
 
 import Footer from "./components/Footer"
@@ -44,7 +44,7 @@ function App() {
       {
         <ErrorHandlerProvider>
           <LoadingWheelProvider>
-            <Router>
+            <BrowserRouter>
               <NavBar /> 
             
               <Routes>
@@ -80,7 +80,7 @@ function App() {
                 <Route path="/advanced_search"      element={<AdvancedSearch />} />
 
               </Routes>
-            </Router>
+            </BrowserRouter>
             <ErrorMessage/>
             <LoadingWheel/>
           </LoadingWheelProvider>

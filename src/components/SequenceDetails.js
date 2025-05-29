@@ -30,6 +30,10 @@ const SequenceDetails = ({ meta_data, alignment }) => {
                         <td>{meta_data["length"] ? meta_data["length"] : '-'}</td>
                     </tr>
                     <tr>
+                        <td><b>Strain</b></td>
+                        <td>{meta_data["strain"] ? meta_data["strain"] : '-'}</td>
+                    </tr>
+                    <tr>
                         <td><b>Strand</b></td>
                         <td>{meta_data["strandedness"] ? meta_data["strandedness"] : "-"}</td>
                     </tr>

@@ -4,9 +4,10 @@ import { formatCollectionYearRange, formatMetaDataRegions } from '@centre-for-vi
 
 
 const SampleDetails = ({ meta_data }) => {
-
-    const regions = meta_data.region ? formatMetaDataRegions(meta_data.region) : null
-
+    console.log(meta_data)
+    console.log("HI")
+    const regions = meta_data ? (meta_data["region"] ? formatMetaDataRegions(meta_data["region"]) : null) : null
+    console.log(regions)
 
 
     return (
@@ -32,16 +33,16 @@ const SampleDetails = ({ meta_data }) => {
                     </tr>
                     
                     <tr>
-                        <td><b>Collection Year Range</b></td>
-                        <td>{formatCollectionYearRange(meta_data.earliest_collection_year, meta_data.latest_collection_year)}</td>
+                        <td><b>Collection Date</b></td>
+                        <td>{meta_data.collection_date}</td>
                     </tr>
                     {regions && 
                         <>
                             <tr>
                                 <td><b>Country of Origin</b></td>
                                 <td>
-                                    {regions.display_name ? `${regions.display_name} ${regions.display_name ? 
-                                    `(${regions.id})`:""}`:"-" }
+                                    {regions.display_name ? `${regions.display_name} ${regions.id ? 
+                                    `(${regions.id}) ${meta_data.geo_loc ? `/ ${meta_data.geo_loc}` : ''}`  :""}`:"-" }
                                 </td>
                             </tr>
                             <tr>
