@@ -52,7 +52,7 @@ const Sequence = () => {
         });
         const results = {primary_accession: id,
                         seq: data["sequence"].toUpperCase(),
-                        alignedSeq: [{query:id, seq:data["sequence"]}],
+                        alignedSeq: [{query:id, seq:data["sequence"].toUpperCase()}],
                         features: features
         }
         
