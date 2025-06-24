@@ -45,10 +45,13 @@ const SequenceDetails = ({ meta_data, alignment }) => {
                         <td><b>Type</b></td>
                         <td>{meta_data["mol_type"] ? meta_data["mol_type"] : "-"}</td>
                     </tr>
-                    <tr>
-                        <td><b>Patent-related?</b></td>
-                        <td>{meta_data.patent_related ? meta_data.patent_related : '-'}</td>
-                    </tr>
+                    {meta_data["exclusion_status"] === 1 &&
+                        <tr>
+                            <td><b>Exclusion Criteria</b>
+                            </td>
+                            <td>{meta_data["exclusion_criteria"]}</td>
+                        </tr>
+                    }
                     {/* <tr>				
                         <td><b>Clade membership</b></td>
                         <td><Link className='custom-link' to={`/sequences`} state={{ country : false, clade:true, clades:[sequence.minor_clade, sequence.major_clade] }}>{sequence.major_clade} {sequence.minor_clade}</Link></td>

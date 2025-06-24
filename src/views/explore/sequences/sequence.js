@@ -33,7 +33,6 @@ const Sequence = () => {
 
         const locationRegex = /cds_location:\s<?(\d+)\.\.>?(\d+);.*?product:\s([^;]+)/g;
 
-
         // Using matchAll to find all matches
         const matches = [...data["meta_data"]["cds_info"].matchAll(locationRegex)];
         console.log(data["meta_data"]["cds_info"])
@@ -70,10 +69,10 @@ const Sequence = () => {
         if (endpointData["meta_data"]){
             const data = parseSequenceData(endpointData)
             setSequenceData([data])
+            console.log(data)
         }
     })
 
-    
 
     useEffect(() => {
         triggerLoadingWheel(isPending)
@@ -85,6 +84,7 @@ const Sequence = () => {
 
     const meta = endpointData?.meta_data;
     const pubmedId = meta?.pubmed_id;
+    const insertions = endpointData?.alignment?.insertions;
 
     const downloadData = (data) => {
         const fastaContent = `>${id}\n${data}`;
@@ -100,7 +100,7 @@ const Sequence = () => {
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
     }
-    console.log(endpointData)
+
     return (
         <div class='container'>
             <div class="row col-md-6">
@@ -124,19 +124,35 @@ const Sequence = () => {
 
                         </div> 
                         <div>
-                            <Button size='sm' className='btn-secondary-filled' onClick={() => downloadData(endpointData["sequence"].toUpperCase())}>Download Sequence</Button>
+                            <Button size='sm' className='btn-main-filled' onClick={() => downloadData(endpointData["sequence"].toUpperCase())}>Download Sequence</Button>
                         </div>
                         <GenomeViewer2 data={sequenceData}/>
                     </div>
+                    { meta.exclusion_status === 0 && 
+                        <div class='row'>
+                            <div class="col-md-6">
+                                <h4 class='title-sub'>Alignment</h4>
+                            </div>
+                            <div>
+                                <Button size='sm' className='btn-main-filled' onClick={() => downloadData(endpointData["alignment"]["alignment"])}>Download Alignment</Button>
+                            </div>
+                            <GenomeViewer data={genomeViewerData}/>
+                        </div>
+                    }
+                    { insertions &&
                     <div class='row'>
                         <div class="col-md-6">
-                            <h4 class='title-sub'>Alignment</h4>
+                            <h4 class='title-sub'>Insertions</h4>
                         </div>
                         <div>
-                            <Button size='sm' className='btn-secondary-filled' onClick={() => downloadData(endpointData["alignment"]["alignment"])}>Download Alignment</Button>
+                            {insertions.map((insertion, i) => (
+                                <p>{insertion.insertion}</p>
+                            ))}
+
+                            
                         </div>
-                        <GenomeViewer data={genomeViewerData}/>
                     </div>
+                    }
                     { pubmedId && 
                         <div>
                             <div class="row">

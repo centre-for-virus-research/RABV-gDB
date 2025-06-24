@@ -4,10 +4,7 @@ import { formatCollectionYearRange, formatMetaDataRegions } from '@centre-for-vi
 
 
 const SampleDetails = ({ meta_data }) => {
-    console.log(meta_data)
-    console.log("HI")
     const regions = meta_data ? (meta_data["region"] ? formatMetaDataRegions(meta_data["region"]) : null) : null
-    console.log(regions)
 
 
     return (

@@ -45,3 +45,13 @@
     position: relative;
     z-index: 1;
 }
+
+.btn.rounded-start-pill:hover {
+  border-top-left-radius: 50rem !important;
+  border-bottom-left-radius: 50rem !important;
+}
+
+.btn.rounded-end-pill:hover {
+  border-top-right-radius: 50rem !important;
+  border-bottom-right-radius: 50rem !important;
+}
