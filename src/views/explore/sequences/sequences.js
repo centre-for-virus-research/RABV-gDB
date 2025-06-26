@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
-
+import { useLocation } from 'react-router-dom';
 // gDB-core components import: This create the tables and buttons to view the data
 import { SequencesTable, SequencesFilter, DownloadDropdown } from '@centre-for-virus-research/gdb-core-package';
 
@@ -12,15 +12,16 @@ import '../../../assets/styles/sequences.css'
 
 
 
-const Sequences = ( { filters=null } ) => {
-
+const Sequences = () => {
+    const location = useLocation();
+    const filters = location.state?.filters ?? null;
     const [params, setParams] = useFilterParams(filters);
     const [data, setData] = useState([])
     const [showFilter, setShowFilter] = useState(false);
     const { triggerError } = useErrorHandler();
     const { triggerLoadingWheel } = useLoadingWheelHandler();
     
-
+    
     const url = params ? "/api/sequences/get_sequences_meta_data_by_filters/" : 
                         "/api/sequences/get_sequences_meta_data/";
     const { endpointData, isPending, endpointError } = useApiEndpoint(url, params);

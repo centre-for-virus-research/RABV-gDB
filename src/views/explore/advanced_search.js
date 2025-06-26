@@ -23,12 +23,14 @@ const AdvancedSearch = () => {
       <p>
         Notes:
         <ul>
-          <li>Meta-data search allows you to build up queries that support a wide range of conditions</li>
-          <li>Sequence search allows partial or exact matches to submitted sequence</li>
+          <li>This search allows you to build up queries that support a wide range of custom conditions</li>
+          <li>Under Search Conditions, select add more to view all the fields that are available to search through.</li>
         </ul>
       </p>
+      <hr></hr>
+      <AdvancedFilter></AdvancedFilter>
 
-        <div className="tabs">
+        {/* <div className="tabs">
           {tabs.map((tab, index) => (
             <Tab
               key={index}
@@ -40,13 +42,13 @@ const AdvancedSearch = () => {
         </div>
         <div style={{'text-align':'left', 'padding-top':'10px', 'width':'100%', 'border-top':'1px solid var(--primary)'}}>
             
-          { activeTab == 0 &&
-            <AdvancedFilter></AdvancedFilter>
+          {/* { activeTab == 0 &&
             
-          }
+            
+          } 
 
             
-        </div>
+        </div> */}
 
       
       

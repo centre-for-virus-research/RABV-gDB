@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useLocation} from 'react-router-dom';
 import { APIPathTable, APIExample, APIOutput } from '@centre-for-virus-research/gdb-core-package';
-
+import { Button } from 'react-bootstrap';
 
 
 const ApiInfo = () => {
 
     const { id } = useParams();
     const location = useLocation();
+    const [runApi, setRunApi] = useState(false);
     var { api } = location.state ?? { api: { get: {parameters: [] } }};
 
     const fetchJSONDataFrom = (path) => {
@@ -45,7 +46,10 @@ const ApiInfo = () => {
             <br></br>
             
             <h2><b>Example Output</b></h2>
-            {/* <APIOutput api={api} /> */}
+            <Button className='btn-main-filled' onClick={e=>setRunApi(true)}>Run</Button>
+            <br></br>
+            <br></br>
+            {runApi && <APIOutput api={api} />}
 
         </div> 
     );
