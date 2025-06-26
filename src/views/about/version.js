@@ -17,7 +17,7 @@ const Version = () => {
         if (endpointError) triggerError(endpointError)
     }, [endpointError, isPending]);
 
-
+    console.log(endpointData)
     return (
         <div class="container ">
             <h2>Version Information</h2>
@@ -26,12 +26,12 @@ const Version = () => {
                 <tbody>
                     { endpointData.map((version) => (
                         <tr>
-                            <td><b>{version.name}</b></td>
-                            <td>{version.value}</td>
+                            <td><b>{version.Software}</b></td>
+                            <td>{version.Version}</td>
                         </tr>
                     ))}
                     <tr>
-                        <td><b>{process.env.REACT_APP_VIRUS_ABB}-{process.env.REACT_APP_WEB_RESOURCE} project version</b></td>
+                        <td><b>{process.env.REACT_APP_VIRUS_ABB}-{process.env.REACT_APP_WEB_RESOURCE} version</b></td>
                         <td>{packageJson.version}</td>
                     </tr>
 
