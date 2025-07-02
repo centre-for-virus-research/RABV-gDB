@@ -103,6 +103,19 @@
   border-color: #fff !important;
 }
 
+.btn-secondary-outline{
+  color: var(--primary) !important;
+  background-color: #fff !important;
+  border-color: var(--primary) !important; /*set the color you want here*/
+  border-radius: 5px !important;
+  
+}
+.btn-secondary-outline:hover, .btn-secondary-outline:focus, .btn-secondary-outline:active, .btn-secondary-outline.active, .open>.dropdown-toggle.btn-secondary-outline {
+  color: var(--primary) !important;
+  background-color: #fff !important;
+  border-color: #fff !important; /*set the color you want here*/
+}
+
 
 
 .btn-main-outline{
@@ -291,3 +304,7 @@ code {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 /*  */
+
+.accent-color-primary {
+  accent-color: var(--primary)
+}
