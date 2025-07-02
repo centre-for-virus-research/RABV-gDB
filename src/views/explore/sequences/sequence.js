@@ -95,17 +95,21 @@ const Sequence = () => {
 
     const processSequenceData = useCallback(() => {
         if (endpointData["meta_data"]){
+            if(!endpointData["meta_data"]["exclusion_status"]){
             const data = parseSequenceData(endpointData)
             setSequenceData([data])
-            console.log(data)
+        }
+
         }
     })
 
     const processSequenceDataNew = useCallback(() => {
         if (endpointData["meta_data"]){
-            const data = parseSequenceDataNew(endpointData)
-            setSequenceDataNew([data])
-            console.log(data)
+            if(!endpointData["meta_data"]["exclusion_status"]){
+                const data = parseSequenceDataNew(endpointData)
+                setSequenceDataNew([data])
+            }
+
         }
     })
 
@@ -118,7 +122,7 @@ const Sequence = () => {
         processSequenceDataNew()
     }, [processAlignmentData, endpointError, isPending]);
 
-
+    console.log(endpointData)
     const meta = endpointData?.meta_data;
     const pubmedId = meta?.pubmed_id;
     const insertions = endpointData?.alignment?.insertions;
@@ -172,7 +176,7 @@ const Sequence = () => {
                         {/* <GenomeViewer2 data={sequenceData}/> */}
                         {sequenceDataNew && <GenomeViewerNew data={sequenceDataNew}/>}
                     </div>
-                    <hr></hr>
+                    {/* <hr></hr> */}
                     { meta.exclusion_status === 0 && 
                         <div class='row'>
                             <div class="col-md-6">
@@ -188,7 +192,7 @@ const Sequence = () => {
 
                     }
                     <br></br>
-                    <hr></hr>
+                    {/* <hr></hr> */}
                     { insertions &&
                     <div class='row'>
                         <div class="col-md-6">

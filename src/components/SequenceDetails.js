@@ -27,7 +27,7 @@ const SequenceDetails = ({ meta_data, alignment }) => {
                     </tr>
                     <tr>
                         <td><b>Sequence Length</b></td>
-                        <td>{meta_data["length"] ? meta_data["length"] : '-'}</td>
+                        <td>{meta_data["real_length"] ? meta_data["real_length"] : '-'}</td>
                     </tr>
                     <tr>
                         <td><b>Strain</b></td>
