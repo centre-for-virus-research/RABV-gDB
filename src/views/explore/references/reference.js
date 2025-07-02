@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { LoadingWheel, ErrorMessage, GenomeRegionAnnotationsTable, GenomeViewer, PagingButtons  } from '@centre-for-virus-research/gdb-core-package';
+import { LoadingWheel, ErrorMessage, GenomeRegionAnnotationsTable, GenomeViewerNew, PagingButtons  } from '@centre-for-virus-research/gdb-core-package';
 
 import { useApiEndpoint, useErrorHandler, useLoadingWheelHandler } from '@centre-for-virus-research/gdb-core-package';
 
@@ -100,7 +100,7 @@ const Reference = () => {
             <div style={{alignItems:'right'}}><PagingButtons data={endpointData["aligned_sequences"]} onPageChange={handlePageChange}> </PagingButtons></div>
             {/* {endpointData["aligned_sequences"] && <PagingButtonsDownload data={endpointData["aligned_sequences"]} onPageChange={handlePageChange}> </PagingButtonsDownload> } */}
             <a>Aligned Sequences {startRecord} to {endRecord} of {endpointData["aligned_sequences"].length}</a>
-                {nextAlign && <GenomeViewer data={nextAlign}/>}
+                {nextAlign && <GenomeViewerNew data={nextAlign}/>}
                 
                 </div>
                 </div>

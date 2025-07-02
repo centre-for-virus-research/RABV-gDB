@@ -80,17 +80,6 @@ const Home = () => {
 
 
             <div class='row justify-content-center'>
-            {/* <nav className="flex">
-                {tabs.map((tab, index) => (
-                    <Button key={tab} onClick={() => setActiveTab(tab)} style={{width: '33%' }} className='btn-main'>
-                        <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title" style={{'color':'var(--secondary)'}}>{tab}</h4>
-                                </div>
-                        </div>
-                    </Button>
-                ))}
-                </nav> */}
             <nav className="d-flex justify-content-center bg-white rounded-pill overflow-hidden">
             {tabs.map((tab, index) => {
                 const isActive = activeTab === tab;
@@ -129,7 +118,70 @@ const Home = () => {
             
             <hr></hr>
 
+            {/*<div className="container">
+                 <div className='row' >
+                    <div className='col-5' style={{
+    background: '#f8f9fa', // light grey/white background
+    borderRadius: '12px',
+    padding: '20px',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+    marginBottom: '20px',
+    float:'left'
+  }}>
+                        <h4 style={{color:'var(--primary)'}}>What is Rabies?</h4>
+                        <p>
+                            Rabies virus (RABV) is a neglected zoonotic disease that causes around 59,000
+                            human deaths each year, with a near 100% mortality rate after the onset of symptoms. 
+                            The virus is a member of the Lyssavirus genus, within the Rhabdoviridae family, which
+                            is characterised by a single stranded, negative-sense RNA genome.
+                        </p>
+                        <p>         
+                            Infection with RABV can occur in all species of mammal, but up to 99% of human
+                            rabies cases arise from bites from infected domestic dogs. Vaccinating dogs
+                            to interrupt transmission is therefore paramount, and a major focus of the
+                            ‘Zero by 30’ global strategy to eliminate human deaths from dog-mediated rabies
+                            by 2030.
+                        </p>
+
+                    </div>
+                    <div className='col-1'></div>
+                    <div className='col-5' style={{
+    background: '#f8f9fa', // light grey/white background
+    borderRadius: '12px',
+    padding: '20px',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+    marginBottom: '20px',
+    float:'right'
+  }}>
+                         <h4 style={{color:'var(--primary'}}>Why RABV-gDB?</h4>
+                        <p>
+                            RABV-{process.env.REACT_APP_WEB_RESOURCE} is a data-centric bioinformatics resource which organises RABV genome sequence data along evolutionary lines. 
+                            RABV-{process.env.REACT_APP_WEB_RESOURCE} aims to leverage new and existing RABV sequences in order to improve our understanding of the epidemiology and pathology of RABV.
+                        </p>
+                        
+                        <p>
+                            The web version of RABV-{process.env.REACT_APP_WEB_RESOURCE} can be used for basic analysis. An offline version of the resource 
+                            can be used for more advanced work.
+                        </p>
+                                        <p>	   
+                            <b>NOTE</b>: we do not store any sequences submitted to RABV-{process.env.REACT_APP_WEB_RESOURCE}!	   
+                        </p>
+                        
+                    </div>
+
+                </div>
+                
+            </div> */}
+
             <div className="container">
+                <div style={{
+    background: '#f8f9fa', // light grey/white background
+    borderRadius: '12px',
+    padding: '20px',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+    marginBottom: '20px',
+    float:'left'
+  }}>
                 <h4 style={{color:'var(--primary)'}}>What is Rabies?</h4>
                 <p>
                     Rabies virus (RABV) is a neglected zoonotic disease that causes around 59,000
@@ -144,7 +196,15 @@ const Home = () => {
                     ‘Zero by 30’ global strategy to eliminate human deaths from dog-mediated rabies
                     by 2030.
                 </p>
-
+</div>
+<div style={{
+    background: '#f8f9fa', // light grey/white background
+    borderRadius: '12px',
+    padding: '20px',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+    marginBottom: '20px',
+    float:'left'
+  }}>
                 <h4 style={{color:'var(--primary'}}>Why RABV-gDB?</h4>
                 <p>
                     RABV-{process.env.REACT_APP_WEB_RESOURCE} is a data-centric bioinformatics resource which organises RABV genome sequence data along evolutionary lines. 
@@ -158,6 +218,7 @@ const Home = () => {
                 <p>	   
                     <b>NOTE</b>: we do not store any sequences submitted to RABV-{process.env.REACT_APP_WEB_RESOURCE}!	   
                 </p>
+                </div>
             </div>
 
         

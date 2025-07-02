@@ -36,7 +36,9 @@ const Sequences = () => {
 
     const handleData = async (data) => {
         if (data.status === 200){
+
             const json = await data.json();  
+            
             setData(json)
         }
     }
@@ -56,7 +58,7 @@ const Sequences = () => {
             <div className='col right-align' >
                 <ButtonGroup>
                     <Button className="paging-buttons" onClick={() => setShowFilter(true)}> Filters </Button>
-                    <DownloadDropdown filters={params} />
+                    <DownloadDropdown filters={params} sequences={data.length} />
                 </ButtonGroup>   
             </div>
 

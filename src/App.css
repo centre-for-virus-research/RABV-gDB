@@ -1,8 +1,8 @@
 :root {
   --primary: #8B0000;
-  --secondary:#C68672;
-  /* --primary: #006e2c;  */
-  /* --secondary: #a94600; */
+  --secondary:#008B8B;
+  /* --primary: #006e2c; 
+  --secondary: #a94600; */
   --secondary-light: rgba(153, 16, 16, 0.36);
   /* --primary-opaque: #006e2cce; 
   --white-opaque: #ffffff87;  */

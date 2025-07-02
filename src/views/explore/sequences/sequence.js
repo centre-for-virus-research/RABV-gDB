@@ -5,7 +5,7 @@ import { faLink } from '@fortawesome/free-solid-svg-icons'
 import { Button } from 'react-bootstrap';
 import SampleDetails from '../../../components/SampleDetails';
 import SequenceDetails  from '../../../components/SequenceDetails';
-import { useApiEndpoint, useErrorHandler, useLoadingWheelHandler, GenomeViewer, GenomeViewer2 } from '@centre-for-virus-research/gdb-core-package';
+import { useApiEndpoint, useErrorHandler, useLoadingWheelHandler, GenomeViewer, GenomeViewer2, GenomeViewerNew } from '@centre-for-virus-research/gdb-core-package';
 
 
 import { buildGenomeViewerResults } from '@centre-for-virus-research/gdb-core-package';
@@ -20,6 +20,7 @@ const Sequence = () => {
 
     const [genomeViewerData, setGenomeViewerData] = useState([])
     const [sequenceData, setSequenceData] = useState([])
+    const [sequenceDataNew, setSequenceDataNew] = useState([])
 
     // Contexts
     const { triggerLoadingWheel } = useLoadingWheelHandler();
@@ -27,6 +28,33 @@ const Sequence = () => {
 
     const url = `/api/sequences/get_sequence_meta_data/${id}`;
     const { endpointData, isPending, endpointError } = useApiEndpoint(url);
+
+    const parseSequenceDataNew = (data) => {
+        const locationRegex = /cds_location:\s<?(\d+)\.\.>?(\d+);.*?product:\s([^;]+)/g;
+
+        // Using matchAll to find all matches
+        const matches = [...data["meta_data"]["cds_info"].matchAll(locationRegex)];
+        console.log(data["meta_data"]["cds_info"])
+        console.log(matches)
+        // Extracting and formatting the results
+        const features = matches.map(match => {
+            const start = match[1];
+            const end = match[2];
+            const product = match[3];  // Extracting the product name
+            
+            return {
+                name: product,  // You can adjust this to be dynamic if necessary
+                start: parseInt(start), // Start position
+                end: parseInt(end) // End position
+            };
+        });
+        const results = {primary_accession: id,
+                        seq: data["sequence"].toUpperCase(),
+                        features: features
+        }
+        
+        return results
+    }
 
     const parseSequenceData = (data) => {
 
@@ -73,12 +101,21 @@ const Sequence = () => {
         }
     })
 
+    const processSequenceDataNew = useCallback(() => {
+        if (endpointData["meta_data"]){
+            const data = parseSequenceDataNew(endpointData)
+            setSequenceDataNew([data])
+            console.log(data)
+        }
+    })
+
 
     useEffect(() => {
         triggerLoadingWheel(isPending)
         if(endpointError) triggerError(endpointError);
         processAlignmentData()        
         processSequenceData()
+        processSequenceDataNew()
     }, [processAlignmentData, endpointError, isPending]);
 
 
@@ -100,15 +137,19 @@ const Sequence = () => {
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
     }
+    console.log(genomeViewerData)
 
     return (
         <div class='container'>
             <div class="row col-md-6">
                 <h2 >Sequence {id} </h2>
             </div>
+
+            
             
             { meta && 
                 <div>
+                    
                     <div class="row">
                         <div class="col-md-6">
                             <SequenceDetails meta_data={meta} 
@@ -126,7 +167,9 @@ const Sequence = () => {
                         <div>
                             <Button size='sm' className='btn-main-filled' onClick={() => downloadData(endpointData["sequence"].toUpperCase())}>Download Sequence</Button>
                         </div>
-                        <GenomeViewer2 data={sequenceData}/>
+                        {/* <GenomeViewerNew data={genomeViewerData} /> */}
+                        {/* <GenomeViewer2 data={sequenceData}/> */}
+                        {sequenceDataNew && <GenomeViewerNew data={sequenceDataNew}/>}
                     </div>
                     { meta.exclusion_status === 0 && 
                         <div class='row'>
@@ -136,9 +179,14 @@ const Sequence = () => {
                             <div>
                                 <Button size='sm' className='btn-main-filled' onClick={() => downloadData(endpointData["alignment"]["alignment"])}>Download Alignment</Button>
                             </div>
-                            <GenomeViewer data={genomeViewerData}/>
+                            {/* <GenomeViewer data={genomeViewerData}/> */}
+                            <br></br>
+                            <br></br>
+                            {genomeViewerData && <GenomeViewerNew data={genomeViewerData}/>}
                         </div>
+
                     }
+                    <br></br>
                     { insertions &&
                     <div class='row'>
                         <div class="col-md-6">
