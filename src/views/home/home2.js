@@ -175,13 +175,12 @@ const Home = () => {
 
             <div className="container">
                 <div style={{
-    background: '#f8f9fa', // light grey/white background
-    borderRadius: '12px',
-    padding: '20px',
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-    marginBottom: '20px',
-    float:'left'
-  }}>
+                    background: '#f8f9fa', // light grey/white background
+                    borderRadius: '12px',
+                    padding: '20px',
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+                    marginBottom: '20px',
+                }}>
                 <h4 style={{color:'var(--primary)'}}>What is Rabies?</h4>
                 <p>
                     Rabies virus (RABV) is a neglected zoonotic disease that causes around 59,000
@@ -196,15 +195,14 @@ const Home = () => {
                     ‘Zero by 30’ global strategy to eliminate human deaths from dog-mediated rabies
                     by 2030.
                 </p>
-</div>
-<div style={{
-    background: '#f8f9fa', // light grey/white background
-    borderRadius: '12px',
-    padding: '20px',
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-    marginBottom: '20px',
-    float:'left'
-  }}>
+                </div>
+                <div style={{
+                    background: '#f8f9fa', // light grey/white background
+                    borderRadius: '12px',
+                    padding: '20px',
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+                    marginBottom: '20px',
+                }}>
                 <h4 style={{color:'var(--primary'}}>Why RABV-gDB?</h4>
                 <p>
                     RABV-{process.env.REACT_APP_WEB_RESOURCE} is a data-centric bioinformatics resource which organises RABV genome sequence data along evolutionary lines. 
@@ -221,8 +219,8 @@ const Home = () => {
                 </div>
             </div>
 
-        
-            {/* <hr></hr> */}
+
+
             {/* <div className="container">
                 <div className='row'>
                     <ModulesBottom />

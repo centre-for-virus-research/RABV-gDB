@@ -123,6 +123,7 @@ const Sequence = () => {
     const pubmedId = meta?.pubmed_id;
     const insertions = endpointData?.alignment?.insertions;
 
+
     const downloadData = (data) => {
         const fastaContent = `>${id}\n${data}`;
         const blob = new Blob([fastaContent], { type: 'text/plain' });
@@ -137,7 +138,7 @@ const Sequence = () => {
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
     }
-    console.log(genomeViewerData)
+
 
     return (
         <div class='container'>
@@ -171,6 +172,7 @@ const Sequence = () => {
                         {/* <GenomeViewer2 data={sequenceData}/> */}
                         {sequenceDataNew && <GenomeViewerNew data={sequenceDataNew}/>}
                     </div>
+                    <hr></hr>
                     { meta.exclusion_status === 0 && 
                         <div class='row'>
                             <div class="col-md-6">
@@ -180,13 +182,13 @@ const Sequence = () => {
                                 <Button size='sm' className='btn-main-filled' onClick={() => downloadData(endpointData["alignment"]["alignment"])}>Download Alignment</Button>
                             </div>
                             {/* <GenomeViewer data={genomeViewerData}/> */}
-                            <br></br>
-                            <br></br>
-                            {genomeViewerData && <GenomeViewerNew data={genomeViewerData}/>}
+
+                            {genomeViewerData && <GenomeViewerNew data={genomeViewerData} refId={endpointData.alignment.alignment_name}/>}
                         </div>
 
                     }
                     <br></br>
+                    <hr></hr>
                     { insertions &&
                     <div class='row'>
                         <div class="col-md-6">

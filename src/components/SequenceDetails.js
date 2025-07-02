@@ -66,12 +66,9 @@ const SequenceDetails = ({ meta_data, alignment }) => {
                         <td><div>
                             {alignment.features.map((feature) => (
                                 <div>
-                                {/* {formatGenomeCoverage(alignment.alignment, feature.start, feature.end) > 0 && 
-                                    <a className='capitalize-text' style={{color:'var(--secondary)', 'text-decoration':'none'}}>{feature.product}: {formatGenomeCoverage(alignment.alignment, feature.start, feature.end)}%<br/></a>
-                                } */}
-                                {formatGenomeCoverage(alignment.alignment, feature.cds_start, feature.cds_end) > 0 && 
-                                    <a className='capitalize-text' style={{color:'var(--secondary)', 'text-decoration':'none'}}>{feature.product}: {formatGenomeCoverage(alignment.alignment, feature.cds_start, feature.cds_end)}%<br/></a>
-                                }
+                                    {formatGenomeCoverage(alignment.alignment, feature.cds_start, feature.cds_end) > 0 && 
+                                        <a className='capitalize-text' style={{color:'var(--secondary)', 'text-decoration':'none'}}>{feature.product}: {formatGenomeCoverage(alignment.alignment, feature.cds_start, feature.cds_end)}%<br/></a>
+                                    }
                                 </div>
                             ))}
                         </div></td>
