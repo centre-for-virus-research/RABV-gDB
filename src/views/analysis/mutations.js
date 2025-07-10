@@ -4,7 +4,7 @@ import { MutationsFilter, MutationsGraph, useLoadingWheelHandler, MutationsTable
 const Mutations = () => {
     const { triggerLoadingWheel } = useLoadingWheelHandler();
     const [mutationsData, setMutationsData] = useState([]);
-
+    console.log(mutationsData.length)
 
     const handleMutations = (data) => { setMutationsData(data) }
     const handlePending = (isPending) => { triggerLoadingWheel(isPending) }
@@ -19,7 +19,7 @@ const Mutations = () => {
                     <MutationsFilter onDataLoad={handleMutations} onPending={handlePending}/>
                 </div>
                 <div className='col-8 float-right'>
-                    <MutationsGraph data={mutationsData}/>
+                    {mutationsData.length > 0 && <MutationsGraph data={mutationsData}/> }
                 </div>
             </div>
             <br></br>
