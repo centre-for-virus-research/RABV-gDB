@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
@@ -6,6 +6,7 @@ import { Button } from 'react-bootstrap';
 import SampleDetails from '../../../components/SampleDetails';
 import SequenceDetails  from '../../../components/SequenceDetails';
 import { useApiEndpoint, useErrorHandler, useLoadingWheelHandler, GenomeViewer, GenomeViewer2, GenomeViewerNew } from '@centre-for-virus-research/gdb-core-package';
+import html2canvas from 'html2canvas';
 
 
 import { buildGenomeViewerResults } from '@centre-for-virus-research/gdb-core-package';
@@ -101,7 +102,7 @@ const Sequence = () => {
         }
 
         }
-    })
+    }, [endpointData])
 
     const processSequenceDataNew = useCallback(() => {
         if (endpointData["meta_data"]){
@@ -111,7 +112,7 @@ const Sequence = () => {
             }
 
         }
-    })
+    }, [endpointData])
 
 
     useEffect(() => {
@@ -122,7 +123,6 @@ const Sequence = () => {
         processSequenceDataNew()
     }, [processAlignmentData, endpointError, isPending]);
 
-    console.log(endpointData)
     const meta = endpointData?.meta_data;
     const pubmedId = meta?.pubmed_id;
     const insertions = endpointData?.alignment?.insertions;
@@ -141,6 +141,22 @@ const Sequence = () => {
         // Clean up
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
+    }
+
+    const viewerRef = useRef(null);
+
+    const handleDownloadPng = async () => {
+        if (!viewerRef.current) return;
+
+        const canvas = await html2canvas(viewerRef.current, {
+        backgroundColor: '#fff', // set a background if transparent
+        useCORS: true, // if images inside the component need CORS
+        });
+
+        const link = document.createElement('a');
+        link.href = canvas.toDataURL('image/png');
+        link.download = `${endpointData.alignment.alignment_name}_genome_viewer.png`;
+        link.click();
     }
 
 
@@ -184,10 +200,12 @@ const Sequence = () => {
                             </div>
                             <div>
                                 <Button size='sm' className='btn-main-filled' onClick={() => downloadData(endpointData["alignment"]["alignment"])}>Download Alignment</Button>
+                                <Button size='sm' className='btn-main-filled' style={{'margin-left':'5px'}} onClick={() => handleDownloadPng()}>Download PNG</Button>
                             </div>
                             {/* <GenomeViewer data={genomeViewerData}/> */}
-
-                            {genomeViewerData && <GenomeViewerNew data={genomeViewerData} refId={endpointData.alignment.alignment_name}/>}
+                            <div ref={viewerRef}>
+                                {genomeViewerData && <GenomeViewerNew data={genomeViewerData} refId={endpointData.alignment.alignment_name}/>}
+                            </div>
                         </div>
 
                     }
