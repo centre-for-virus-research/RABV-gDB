@@ -16,9 +16,6 @@ import { useJobPolling } from '@centre-for-virus-research/gdb-core-package'
 
 
 import { AlignmentSubmission, submitApiQuery, BlastResults, AlignmentResults, steps, CustomStepIcon } from '@centre-for-virus-research/gdb-core-package'
-// import { alignmentResults } from './sequenceViewerHelper';
-
-
 
 const Alignment = () => {
 
@@ -34,7 +31,6 @@ const Alignment = () => {
         
     };
     
-    // 
     const [blastFailed, setBlastFailed] = React.useState(false);
     const [jobId, setJobId] = useState('');
     const [isPolling, setIsPolling] = useState(true);
@@ -42,11 +38,10 @@ const Alignment = () => {
 
     const [jobSubmitted, setJobSubmitted] = useState(false)
 
-
     const [jobCreationError, setJobCreationError] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
     const [blastResults, setBlastResults] = useState(null);
-    // const [alignmentResults, setAlignmentResults] = useState(null);
+
 
     useJobPolling(isPolling, jobId, () => fetchJobStatus(jobId, handleJobStatus));
 
@@ -91,8 +86,6 @@ const Alignment = () => {
 
     const handleJobStatus = async (data) => {
         const response = await data.json()
-        console.log("status")
-        console.log(response.status)
         if (response.status.message === "done") {
             setIsPolling(false); // Stop polling
         } else if (response.status.message === 'failed'){
@@ -129,17 +122,15 @@ const Alignment = () => {
         if (data.status === 200){
             const blob = await data.blob();  
             const blobText = await blob.text()
-            console.log(blobText)
             setBlastResults(blobText)
         } 
     }
-    console.log(blastResults)
+
 
     const [alignmentResults, setAlignmentResults] = useState([])
     const handleAlignmentResults = async (data) => {
         if (data.status === 200){
             const json = await data.json();  
-            console.log(json)
             setAlignmentResults(json)
 
         } 
@@ -156,74 +147,67 @@ const Alignment = () => {
 
     return (
         <div class='container'>
-        <div className='row'>
-            <h2>Sequence Alignment</h2>
-            <p>
-                Submit your sequence files in FASTA nucleotide format for automated
-                alignment and clade assignment against the {process.env.REACT_APP_VIRUS_ABB}-{process.env.REACT_APP_WEB_RESOURCE}&nbsp;
-                database.
-            </p>
-            <hr></hr>
-            <div>
+            <div className='row'>
+                <h2>Sequence Alignment</h2>
+                <p>
+                    Submit your sequence files in FASTA nucleotide format for automated
+                    alignment and clade assignment against the {process.env.REACT_APP_VIRUS_ABB}-{process.env.REACT_APP_WEB_RESOURCE}&nbsp;
+                    database.
+                </p>
+                <hr></hr>
+                    <div>
 
-            {jobCreationError &&
-                <div className="db-status failure" style={{'margin-bottom':'10px'}}><p>{errorMessage}</p></div>
-            }
+                    {jobCreationError &&
+                        <div className="db-status failure" style={{'margin-bottom':'10px'}}><p>{errorMessage}</p></div>
+                    }
 
-            <AlignmentSubmission jobSubmitted={submitJob}/>
-            <br></br>
-            <br></br>
-            {/* <AlignmentResults data={alignmentResults}/> */}
-            {jobSubmitted && !jobCreationError &&
-            <div>
-            <hr></hr>
+                    <AlignmentSubmission jobSubmitted={submitJob}/>
+                    <br></br>
+                    <br></br>
+                    {jobSubmitted && !jobCreationError &&
+                        <div>
+                            <hr></hr>
+                            <Box>
+                                <Stepper activeStep={activeStep} orientation="vertical" >
+                                    {steps.map((step, index) => (
+                                        <Step key={step.label}>
+                                            <StepLabel
+                                                StepIconComponent={(props) => (
+                                                <CustomStepIcon {...props} index={index} completed={index < currentStep} currentStep={currentStep} failed={blastFailed} jobFailed={jobCreationError}/>
+                                                )}
+                                                onClick={() => handleStepClick(index)} // Handle StepLabel click
+                                            >
+                                                <h3>{step.label}&nbsp; <Button style={{margin:'0px', padding:'0px', border:'none', backgroundColor:'white', color:"var(--secondary)"}}> {activeStep === index ? <FontAwesomeIcon icon={faCaretUp} /> : <FontAwesomeIcon icon={faCaretDown} />}</Button> {activeStep === index && status}</h3>
+                                                
+                                            </StepLabel>
+                                            <StepContent>
+                                                {index == 0 &&
 
-            <Box >
-                <Stepper activeStep={activeStep} orientation="vertical" >
-                    {steps.map((step, index) => (
-                        <Step key={step.label}>
-                            <StepLabel
-                                StepIconComponent={(props) => (
-                                <CustomStepIcon {...props} index={index} completed={index < currentStep} currentStep={currentStep} failed={blastFailed} jobFailed={jobCreationError}/>
-                                )}
-                                onClick={() => handleStepClick(index)} // Handle StepLabel click
-                            >
-                                <h3>{step.label}&nbsp; <Button style={{margin:'0px', padding:'0px', border:'none', backgroundColor:'white', color:"var(--secondary)"}}> {activeStep === index ? <FontAwesomeIcon icon={faCaretUp} /> : <FontAwesomeIcon icon={faCaretDown} />}</Button> {activeStep === index && status}</h3>
-                                
-                            </StepLabel>
-                            <StepContent>
-                                {index == 0 &&
+                                                    <Typography>
+                                                        <p>{step.description}</p>
+                                                        {currentStep > 0 && <BlastResults data={blastResults}/>}
+                                                    </Typography>
+                                                }
+                                                {index == 1 &&
+                                                    <Typography>
+                                                        <p>{step.description}</p>
+                                                        <div>
+                                                            {currentStep > 1 && alignmentResults && <AlignmentResults data={alignmentResults}/>}
 
-                                    <Typography>
-                                        <p>{step.description}</p>
-                                        {currentStep > 0 && <BlastResults data={blastResults}/>}
-                                    </Typography>
-                                }
-                                {index == 1 &&
-                                    <Typography>
-                                        <p>{step.description}</p>
-                                        <div>
-                                            {currentStep > 1 && alignmentResults && <AlignmentResults data={alignmentResults}/>}
-
-                                        </div>
-                                    </Typography>
-                                }
-                            </StepContent>
-        
-                        </Step>
-                    ))}
-                </Stepper>
-      
-            </Box>
+                                                        </div>
+                                                    </Typography>
+                                                }
+                                            </StepContent>
+                        
+                                        </Step>
+                                    ))}
+                                </Stepper>
+                    
+                            </Box>
+                        </div>
+                    }
+                </div>
             </div>
-        }
-        </div>
-
-        
-    
-       
-        </div>
-            
         </div>
        
     );

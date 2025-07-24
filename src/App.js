@@ -29,6 +29,7 @@ import Api from './views/api/api';
 import ApiInfo from './views/api/apiInfo';
 import Version from './views/about/version';
 import Other from './views/about/other';
+import Help from './views/about/help';
 
 import Documentation from './views/documentation';
 
@@ -64,6 +65,7 @@ function App() {
                 <Route path="/version"              element={<Version />} />
                 <Route path="/other"              element={<Other />} />
                 <Route path="/statistics"           element={<Statistics />} />
+                <Route path="/help"                 element={<Help />} />
 
                 {/* API */}
                 <Route path="/api"                  element={<Api />} />
