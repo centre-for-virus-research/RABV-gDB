@@ -13,6 +13,7 @@ const Mutations = () => {
     return (
         <div class='container'>
             <h2>Mutations Explorer</h2>
+            <p>Explore mutations across different codon locations for various hosts.</p>
             <div className='row'> 
                 <div className='col-4 float-left' >
                     <h6>Search Conditions</h6>

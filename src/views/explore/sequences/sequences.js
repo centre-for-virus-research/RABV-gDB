@@ -44,6 +44,7 @@ const Sequences = () => {
     }
     const handleFiltersChange = useCallback((data) => {
         setParams(data)
+
         const queryString = new URLSearchParams(data).toString();
         const fullUrl = `${process.env.REACT_APP_BACKEND_URL}${'/api/sequences/get_sequences_meta_data_by_filters/'}${queryString ? `?${queryString}` : ''}`;
         submitApiQuery(fullUrl, false, handleData)
