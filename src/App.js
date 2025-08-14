@@ -31,6 +31,8 @@ import Version from './views/about/version';
 import Other from './views/about/other';
 import Help from './views/about/help';
 
+import Phylogeny from './views/explore/phylogeny';
+
 import Documentation from './views/documentation';
 
 import AdvancedSearch from './views/explore/advanced_search';
@@ -80,6 +82,7 @@ function App() {
                 {/* Other */}
                 <Route path="/documentation"        element={<Documentation />} />
                 <Route path="/advanced_search"      element={<AdvancedSearch />} />
+                <Route path="/phylogeny"            element={<Phylogeny />} />
 
               </Routes>
             </BrowserRouter>
