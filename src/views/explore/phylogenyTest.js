@@ -18,24 +18,7 @@ const PhylogenyTest = () => {
               aria-labelledby="navbarDropdown"
               id="selection_name_dropdown"
             >
-              <div class="dropdown-divider"></div>
             </div>
-                <ul class="nav navbar-nav mx-auto">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Tag
-            </a>
-
-          </li>
-        </ul>
       </div>
       <div class="row">
         <div class="col-md-12">
