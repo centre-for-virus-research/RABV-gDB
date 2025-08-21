@@ -39,6 +39,7 @@ import AdvancedSearch from './views/explore/advanced_search';
 
 import { ErrorHandlerProvider, LoadingWheelProvider } from "@centre-for-virus-research/gdb-core-package";
 
+import PhylogenyTest from './views/explore/phylogenyTest';
 
 function App() {
   return (
@@ -83,6 +84,7 @@ function App() {
                 <Route path="/documentation"        element={<Documentation />} />
                 <Route path="/advanced_search"      element={<AdvancedSearch />} />
                 <Route path="/phylogeny"            element={<Phylogeny />} />
+                <Route path="/phylogeny_test"            element={<PhylogenyTest />} />
 
               </Routes>
             </BrowserRouter>

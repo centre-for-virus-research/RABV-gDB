@@ -5,7 +5,7 @@
 }
 
 .tree-scale-bar text {
-  font: sans-serif;
+  font: "Helvetica Neue";
 }
 
 .tree-scale-bar line,
@@ -32,7 +32,11 @@
 }
 
 .node {
-  font: 10px sans-serif;
+  font: 10px "Helvetica Neue";
+}
+
+.phylotree-node-text .selected {
+  color:purple;
 }
 
 .node-selected {
@@ -56,8 +60,8 @@
 }
 
 .clade {
-  fill: #1f77b4;
-  stroke: #444;
+  fill: purple;
+  stroke: purple;
   stroke-width: 2px;
   opacity: 0.5;
 }
@@ -94,7 +98,7 @@
 }
 
 .branch:hover {
-  stroke-width: 10px;
+  /* stroke-width: 10px; */
 }
 
 .internal-node circle:hover,
